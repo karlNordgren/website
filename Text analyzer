@@ -1,3 +1,5 @@
+#This can be used to analyze text. It will tell how frequently each word is used. 
+
 import re
 
 k = re.split(r'\s', 'Adversity in childhood such as bereavement neglect mental abuse physical abuse sexual abuse and unequal parental treatment of siblings can contribute to depression in adulthood Childhood physical or sexual abuse in particular significantly correlates with the likelihood of experiencing depression over the life course '
