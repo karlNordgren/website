@@ -1,0 +1,72 @@
+import re
+
+k = re.split(r'\s', 'Adversity in childhood such as bereavement neglect mental abuse physical abuse sexual abuse and unequal parental treatment of siblings can contribute to depression in adulthood Childhood physical or sexual abuse in particular significantly correlates with the likelihood of experiencing depression over the life course '
+'Life events and changes that may precipitate depressed mood include but are not limited to childbirth menopause financial difficulties unemployment stress such as from work education family living conditions etc a medical diagnosis cancer HIV etc bullying loss of a loved one natural disasters social isolation rape relationship troubles jealousy separation and catastrophic injury Adolescents may be especially prone to experiencing depressed mood following social rejection peer pressure and bullying '
+'Personality '
+'High scores on the personality domain neuroticism make the development of depressive symptoms as well as all kinds of depression diagnoses more likely and depression is associated with low extraversion Other personality indicators could be temporary but rapid mood changes short term hopelessness loss of interest in activities that used to be of a part of one\'s life sleep disruption withdrawal from previous social life appetite changes and difficulty concentrating '
+'Gender identity and sexuality '
+'Studies have shown that those who are marginalized due to either their gender identity or sexual orientation such as those that identify as LGBT are more prone to depression '
+'Medical treatments '
+'Depression may also be iatrogenic the result of healthcare such as drug induced depression Therapies associated with depression include interferon therapy beta-blockers Isotretinoin contraceptives cardiac agents anticonvulsants antimigraine drugs antipsychotics and hormonal agents such as gonadotropin-releasing hormone agonist '
+'Substance-induced '
+'Several drugs of abuse can cause or exacerbate depression whether in intoxication withdrawal and from chronic use These include alcohol sedatives including prescription benzodiazepines opioids including prescription pain killers and illicit drugs such as heroin stimulants such as cocaine and amphetamines hallucinogens and inhalants '
+'Non-psychiatric illnesses '
+'Main article Depression differential diagnoses '
+'Depressed mood can be the result of a number of infectious diseases nutritional deficiencies neurological conditions and physiological problems including hypoandrogenism in men Addison\'s disease Cushing\'s syndrome hypothyroidism Lyme disease multiple sclerosis Parkinson\'s disease chronic pain stroke diabetes and cancer '
+'Psychiatric syndromes '
+'Main article Depressive mood disorders '
+'A number of psychiatric syndromes feature depressed mood as a main symptom The mood disorders are a group of disorders considered to be primary disturbances of mood These include major depressive disorder MDD; commonly called major depression or clinical depression where a person has at least two weeks of depressed mood or a loss of interest or pleasure in nearly all activities; and dysthymia a state of chronic depressed mood the symptoms of which do not meet the severity of a major depressive episode Another mood disorder bipolar disorder features one or more episodes of abnormally elevated mood cognition and energy levels but may also involve one or more episodes of depression When the course of depressive episodes follows a seasonal pattern the disorder major depressive disorder bipolar disorder etc may be described as a seasonal affective disorder Outside the mood disorders borderline personality disorder often features an extremely intense depressive mood; adjustment disorder with depressed mood is a mood disturbance appearing as a psychological response to an identifiable event or stressor in which the resulting emotional or behavioral symptoms are significant but do not meet the criteria for a major depressive episode;355 and posttraumatic stress disorder a mental disorder that sometimes follows trauma is commonly accompanied by depressed mood '
+'Historical legacy '
+'Main article Dispossession oppression and depression '
+'Researchers have begun to conceptualize ways in which the historical legacies of racism and colonialism may create depressive conditions ')
+
+#Word First 
+def org():
+	global j
+	j = []
+	z = 0
+	while z < len(k):
+		j.append([str(k[z]), k.count(k[z])])
+		z = z + 1
+
+#Number First
+def org2():
+	global j
+	j = []
+	z = 0
+	while z < len(k):
+		j.append([k.count(k[z]), str(k[z])])
+		z = z + 1
+
+def pops():
+	z = 0
+	while z < len(j):
+		if j.count(j[z]) > 1:
+			j.remove(j[z])
+			z = z + 1
+		else:
+			z = z + 1
+		
+def listed():
+	  n = 0
+	  while n < len(j):
+		  print(j[n])
+		  n = n + 1
+	  else:
+		  n = n + 1
+
+
+org2()
+pops()
+pops()
+pops()
+pops()
+pops()
+pops()
+pops()
+pops()
+pops()
+j.sort(reverse=True)
+#print(j)
+listed()
+
