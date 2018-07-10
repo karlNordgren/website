@@ -123,7 +123,7 @@ def prime_time(p1, p2):
     totals(0)
     
 print("Welcome to prime_time()!")
-LOO = ["primeArray", "totals(m)"]
+LOO = ["primeArray", "totals(m)", "prime_time(x1, x2)"]
 print("List of Options (LOO) =", LOO)
 
 
