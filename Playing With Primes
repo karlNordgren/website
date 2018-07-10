@@ -1,0 +1,180 @@
+#So this is just some freestyle primal math
+#and experimenting project. 
+
+#prime_time()
+#This allows the user to find primes between two variables and analyzes
+#some statistical information regarding the primes.
+
+#Things to do....
+#add in failure events if the numbers are big enough.
+#
+
+
+import math
+
+#introductory example
+def pt():
+    fp1(100, 500)
+    dbp()
+    u_p()
+    tot()
+    intro()
+
+#Table of Contents
+def intro():
+    print(" ")
+    print(" ")
+    global functionsLibrary
+    functionsLibrary = ["functionsLibrary", "intro()", "pt() = prime time(100, 500)", "fp(x, y) = find primes",
+                        "dbp() = difference between primes", "u_p() = unique primes", "tot() = totals"]
+    global variableLibrary
+    variableLibrary = ["variableLibrary", "functionsLibrary" "primeArray", "sdbp = sortedDifferenceBetweenPrimes", "up = unique primes"]
+    print("Welcome to prime_time()!, Choose frome the following options:")
+    print(functionsLibrary)
+    print(" ")
+    print(variableLibrary)
+
+#used only in the introductory example to find the primes p1 and p2
+def fp1(p1, p2):
+    global primeArray
+    global testPrimeArray
+    primeArray = []
+    testPrimeArray = []
+    
+    while p1 < p2:
+        
+                #While testing primes the denominator starts at 2
+                y = 2
+                
+                while y < p1:
+                    #the prime test is done by adding results to an array. When the
+                    #array < 0 the trap trips and the number is listed as prime. 
+                    if sum(testPrimeArray) != 0:
+                        break
+                    if y > math.sqrt(p1):
+                        break
+                    #If this prime test succeeds then the number 
+                    if p1%y == 0:
+                        testPrimeArray.append(1)
+                        y = y + 1
+                    elif p1%y != 0:
+                        testPrimeArray.append(0) 
+                        y = y + 1
+                if (sum(testPrimeArray)) == 0:
+                    primeArray.append(p1)
+                testPrimeArray = []
+                p1 = p1 + 1
+                
+    print("find_Primes(p1, p2), primeArray =", primeArray)
+    
+
+#Used to prove prime numbers
+def fp(p1, p2):
+    global primeArray
+    global testPrimeArray
+    primeArray = []
+    testPrimeArray = []
+    
+    while p1 < p2:
+        
+                #While testing primes the denominator starts at 2
+                y = 2
+                
+                while y < p1:
+                    #the prime test is done by adding results to an array. When the
+                    #array < 0 the trap trips and the number is listed as prime. 
+                    if sum(testPrimeArray) != 0:
+                        break
+                    if y > math.sqrt(p1):
+                        break
+                    #If this prime test succeeds then the number 
+                    if p1%y == 0:
+                        testPrimeArray.append(1)
+                        y = y + 1
+                    elif p1%y != 0:
+                        testPrimeArray.append(0) 
+                        y = y + 1
+                if (sum(testPrimeArray)) == 0:
+                    primeArray.append(p1)
+                testPrimeArray = []
+                p1 = p1 + 1
+                
+    print("find_Primes(p1, p2), primeArray =", primeArray)
+    dbp()
+    u_p()
+    tot(m = 0)
+    
+#Used to calculate the separation between prime numbers 
+def dbp():
+    j = 1
+    global differenceBetweenPrimes
+    differenceBetweenPrimes = []
+    global sdbp
+    sdbp = sortedDifferenceBetweenPrimes
+    global sortedDifferenceBetweenPrimes
+    sortedDifferenceBetweenPrimes = sorted(differenceBetweenPrimes) 
+    
+    #loop produces the difference between primes array
+    while j < len(primeArray)-1:
+        differenceBetweenPrimes.append(primeArray[j]-primeArray[j-1])
+        j = j + 1
+    
+    #TESTING ENVIRONMENT
+    #print("differenceBetweenprimes", differenceBetweenPrimes)
+    #print("Sum of Difference between Primes =", sum(differenceBetweenPrimes))
+    #print(sortedDifferenceBetweenPrimes)
+    #print(" ") 
+    #print(" ")
+    #print("sorted(differenceBetweenPrimes) =", sorted(differenceBetweenPrimes))
+    #print("average difference =", sum(differenceBetweenPrimes)/len(differenceBetweenPrimes))
+    
+
+
+#Used to find which primes are unique. 
+def u_p():
+    k = 1
+    z = 0
+    global uniquePrimes
+    uniquePrimes = []
+    global up
+    up = uniquePrimes
+    global m
+    m = 0
+    
+    uniquePrimes.append(sortedDifferenceBetweenPrimes[0])
+    lengthSortedDifferenceBetweenPrime = len(sortedDifferenceBetweenPrimes)
+    
+    while z < len(sortedDifferenceBetweenPrimes):
+        if sortedDifferenceBetweenPrimes[z] != sortedDifferenceBetweenPrimes[z+1]:
+            uniquePrimes.append(sortedDifferenceBetweenPrimes[z+1])
+            z = z + 1
+            k = k + 1
+        elif sortedDifferenceBetweenPrimes[z] == sortedDifferenceBetweenPrimes[z+1]:
+            z = z + 1
+            k = k + 1
+        if  k == len(sortedDifferenceBetweenPrimes):
+            break
+
+        #TESTING ENVIRONMENT
+        #print("length sortedDifferenceBetweenPrimes = ", len(sortedDifferenceBetweenPrimes))
+        #print("sortedDifferenceBetweenPrimes[z]", sortedDifferenceBetweenPrimes[z])
+        #print("sortedDifferenceBetweenPrimes", sortedDifferenceBetweenPrimes)
+        #print("Total number of", sortedDifferenceBetweenPrimes[0], "=", sortedDifferenceBetweenPrimes.count(sortedDifferenceBetweenPrimes[0]))      
+    print("unique separation between Primes:", uniquePrimes)
+    
+
+#totals
+def tot(m = 0):
+        print(" ")
+        print("Totals = tot(m)")
+        print("percentage of number separations between prime numbers")
+        while m < len(uniquePrimes):
+            
+            
+        
+            #print(sortedDifferenceBetweenPrimes.count(m))
+            #print("percentage of number separations between prime numbers")
+            print(uniquePrimes[m], round(sortedDifferenceBetweenPrimes.count(uniquePrimes[m])/len(sortedDifferenceBetweenPrimes)*100), "%", "----------", sortedDifferenceBetweenPrimes.count(uniquePrimes[m]), "/", len(sortedDifferenceBetweenPrimes))
+            m = m + 1
+    
+pt()
