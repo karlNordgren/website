@@ -1,0 +1,286 @@
+import random
+
+
+#CARD VALUE LIST
+cL = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
+dL = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
+hL = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
+sL = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
+
+
+#SUIT LIST
+c = ["C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C", "C"]
+d = ["D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D"]
+h = ["H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H"]
+s = ["S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S"]
+
+
+#SUIT LIST
+c1 = ["2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC", "AC",
+        "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD", "AD",
+        "2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "10H", "JH", "QH", "KH", "AH",
+        "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "10S", "JS", "QS", "KS", "AS"]
+
+#OBJECT ORIENTED DECK
+DECK9 = ["C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C9", "C9", "C9", "C9", "C9",
+       "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D9", "D9", "D9", "D9", "D9",
+        "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H9", "H9", "H9", "H9", "H9",
+        "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S9", "S9", "S9", "S9", "S9"]
+
+#UNIFIED
+CC = [(2, 'C'), (3, 'C'), (4, 'C'), (5, 'C'), (6, 'C'), (7, 'C'),
+      (8, 'C'), (9, 'C'), (10, 'C'), ('J', 'C'), ('Q', 'C'), ('K', 'C')]
+DD = [(2, 'D'), (3, 'D'), (4, 'D'), (5, 'D'), (6, 'D'), (7, 'D'),
+      (8, 'D'), (9, 'D'), (10, 'D'), ('J', 'D'), ('Q', 'D'), ('K', 'D')]
+SS = [(2, 'S'), (3, 'S'), (4, 'S'), (5, 'S'), (6, 'S'), (7, 'S'),
+      (8, 'S'), (9, 'S'), (10, 'S'), ('J', 'S'), ('Q', 'S'), ('K', 'S')]
+HH = [(2, 'H'), (3, 'H'), (4, 'H'), (5, 'H'), (6, 'H'), (7, 'H'),
+      (8, 'H'), (9, 'H'), (10, 'H'), ('J', 'H'), ('Q', 'H'), ('K', 'H')]
+
+#DECK
+DECK = [(2, 'C'), (3, 'C'), (4, 'C'), (5, 'C'), (6, 'C'), (7, 'C'), (8, 'C'),
+        (9, 'C'), (10, 'C'), ('J', 'C'), ('Q', 'C'), ('K', 'C'), ('A', 'C'),
+        (2, 'D'), (3, 'D'), (4, 'D'), (5, 'D'), (6, 'D'), (7, 'D'),(8, 'D'),
+        (9, 'D'), (10, 'D'), ('J', 'D'), ('Q', 'D'), ('K', 'D'), ('A', 'D'),
+        (2, 'S'), (3, 'S'), (4, 'S'), (5, 'S'), (6, 'S'), (7, 'S'),(8, 'S'),
+        (9, 'S'), (10, 'S'), ('J', 'S'), ('Q', 'S'), ('K', 'S'), ('A', 'S'),
+        (2, 'H'), (3, 'H'), (4, 'H'), (5, 'H'), (6, 'H'), (7, 'H'),(8, 'H'),
+        (9, 'H'), (10, 'H'), ('J', 'H'), ('Q', 'H'), ('K', 'H'), ('A', 'H')]
+
+#SUFFLED DECKB 
+random.shuffle(DECK)
+
+
+#UNSHUFFLED DECK
+UD1 = [dL, cL, sL, hL]
+UD2 = [d, s, c, h] 
+
+
+#TESTING ENVIRONMENT
+print(DECK)
+print(" ")
+
+
+
+#zippedDL = zip(hL, h)
+#deck2 = list(zippedDL)
+#print(deck2)
+
+#PRODUCE SHUFFLED DECK
+
+
+global hands
+global players
+global fullHand
+
+fullHand = []
+hands = []
+players = 9
+def psd():
+    x = 0
+    
+    
+    while x < players: 
+        print("Player ", x+1, "'s cards:", DECK[x], DECK[x+players])
+        hands.append(DECK[x])
+        hands.append(DECK[x+players])
+        #print(deck(randomValueNumber))
+        x = x + 1
+    flop1 = DECK[x + players]
+    flop2 = DECK[x + players + 1]
+    flop3 = DECK[x + players + 2]
+    fullHand.append(flop1)
+    fullHand.append(flop2)
+    fullHand.append(flop3)
+
+    turn = DECK[x + players + 4]
+    river = DECK[x + players + 5]
+    fullHand.append(turn)
+    fullHand.append(river)
+    
+    
+
+    
+    print("flop: ", flop1, flop2, flop3) 
+    print("turn: ", turn)
+    print("river: ", river)
+    print("hands", hands) 
+    
+    
+#ANALYZE HANDS
+#hands = hands
+#player1Hand = [hands[0], hands[1], flop1, flop2, flop3, turn, river]
+#print(player1Hand)
+          
+            
+psd()
+print(hands)
+print(" ")
+#print(flop1)
+if players > 0:
+    player1Hand = [hands[0], hands[1], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(player1Hand)
+    print("Diamonds", player1Hand[0].count('D') + player1Hand[1].count('D') + player1Hand[2].count('D') + player1Hand[3].count('D') +
+          player1Hand[4].count('D') + player1Hand[5].count('D')+ player1Hand[6].count('D'))
+    print("Hearts", player1Hand[0].count('H')+ player1Hand[1].count('H') + player1Hand[2].count('H') + player1Hand[3].count('H')
+          + player1Hand[4].count('H') + player1Hand[5].count('H') + player1Hand[6].count('H'))
+    print("Spades", player1Hand[0].count('S') + player1Hand[1].count('S') + player1Hand[2].count('S') + player1Hand[3].count('S')
+          + player1Hand[4].count('S') + player1Hand[5].count('S')+ player1Hand[6].count('S'))
+    print("Clubs", player1Hand[0].count('C')+ player1Hand[1].count('C') + player1Hand[2].count('C') + player1Hand[3].count('C')
+          + player1Hand[4].count('C')+ player1Hand[5].count('C')+ player1Hand[6].count('C'))
+if players > 1:
+    player2Hand = [hands[2], hands[3], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player2Hand)
+    print("Diamonds", player2Hand[0].count('D') + player2Hand[1].count('D') + player2Hand[2].count('D') + player2Hand[3].count('D') +
+          player2Hand[4].count('D') + player2Hand[5].count('D')+ player2Hand[6].count('D'))
+    print("Hearts", player2Hand[0].count('H')+ player2Hand[1].count('H') + player2Hand[2].count('H') + player2Hand[3].count('H')
+          + player2Hand[4].count('H') + player2Hand[5].count('H')+ player2Hand[6].count('H'))
+    print("Spades", player2Hand[0].count('S') + player2Hand[1].count('S') + player2Hand[2].count('S') + player2Hand[3].count('S')
+          + player2Hand[4].count('S') + player2Hand[5].count('S')+ player2Hand[6].count('S'))
+    print("Clubs", player2Hand[0].count('C')+ player2Hand[1].count('C') + player2Hand[2].count('C') + player2Hand[3].count('C')
+          + player2Hand[4].count('C')+ player2Hand[5].count('C')+ player2Hand[6].count('C'))
+if players > 2:
+    player3Hand = [hands[4], hands[5], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player3Hand)
+    print("Diamonds", player3Hand[0].count('D') + player3Hand[1].count('D') + player3Hand[2].count('D') + player3Hand[3].count('D') +
+      player3Hand[4].count('D') + player3Hand[5].count('D'))
+    print("Hearts", player3Hand[0].count('H')+ player3Hand[1].count('H') + player3Hand[2].count('H') + player3Hand[3].count('H')
+      + player3Hand[4].count('H') + player3Hand[5].count('H'))
+    print("Spades", player3Hand[0].count('S') + player3Hand[1].count('S') + player3Hand[2].count('S') + player3Hand[3].count('S')
+      + player3Hand[4].count('S') + player3Hand[5].count('S'))
+    print("Clubs", player3Hand[0].count('C')+ player3Hand[1].count('C') + player3Hand[2].count('C') + player3Hand[3].count('C')
+      + player3Hand[4].count('C')+ player3Hand[5].count('C'))
+if players > 3:
+    player4Hand = [hands[6], hands[7], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player4Hand)
+    print("Diamonds", player4Hand[0].count('D') + player4Hand[1].count('D') + player4Hand[2].count('D') + player4Hand[3].count('D') +
+          player4Hand[4].count('D') + player4Hand[5].count('D'))
+    print("Hearts", player4Hand[0].count('H')+ player4Hand[1].count('H') + player4Hand[2].count('H') + player4Hand[3].count('H')
+          + player4Hand[4].count('H') + player4Hand[5].count('H'))
+    print("Spades", player4Hand[0].count('S') + player4Hand[1].count('S') + player4Hand[2].count('S') + player4Hand[3].count('S')
+          + player4Hand[4].count('S') + player4Hand[5].count('S'))
+    print("Clubs", player4Hand[0].count('C')+ player4Hand[1].count('C') + player4Hand[2].count('C') + player4Hand[3].count('C')
+          + player4Hand[4].count('C')+ player4Hand[5].count('C'))
+if players > 4:
+    player5Hand = [hands[8], hands[9], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player5Hand)
+    print("Diamonds", player5Hand[0].count('D') + player5Hand[1].count('D') + player5Hand[2].count('D') + player5Hand[3].count('D') +
+          player5Hand[4].count('D') + player5Hand[5].count('D'))
+    print("Hearts", player5Hand[0].count('H')+ player5Hand[1].count('H') + player5Hand[2].count('H') + player5Hand[3].count('H')
+          + player5Hand[4].count('H') + player5Hand[5].count('H'))
+    print("Spades", player5Hand[0].count('S') + player5Hand[1].count('S') + player5Hand[2].count('S') + player5Hand[3].count('S')
+          + player5Hand[4].count('S') + player5Hand[5].count('S'))
+    print("Clubs", player5Hand[0].count('C')+ player5Hand[1].count('C') + player5Hand[2].count('C') + player5Hand[3].count('C')
+          + player5Hand[4].count('C')+ player5Hand[5].count('C'))
+if players > 5:
+    player6Hand = [hands[10], hands[11], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player6Hand)
+    print("Diamonds", player6Hand[0].count('D') + player6Hand[1].count('D') + player6Hand[2].count('D') + player6Hand[3].count('D') +
+          player6Hand[4].count('D') + player6Hand[5].count('D'))
+    print("Hearts", player6Hand[0].count('H')+ player6Hand[1].count('H') + player6Hand[2].count('H') + player6Hand[3].count('H')
+          + player6Hand[4].count('H') + player6Hand[5].count('H'))
+    print("Spades", player6Hand[0].count('S') + player6Hand[1].count('S') + player6Hand[2].count('S') + player6Hand[3].count('S')
+          + player6Hand[4].count('S') + player6Hand[5].count('S'))
+    print("Clubs", player6Hand[0].count('C')+ player6Hand[1].count('C') + player6Hand[2].count('C') + player6Hand[3].count('C')
+          + player6Hand[4].count('C')+ player6Hand[5].count('C')+ player6Hand[6].count('C'))
+if players > 6:
+    player7Hand = [hands[12], hands[13], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player7Hand)
+    print("Diamonds", player7Hand[0].count('D') + player7Hand[1].count('D') + player7Hand[2].count('D') + player7Hand[3].count('D') +
+          player7Hand[4].count('D') + player7Hand[5].count('D'))
+    print("Hearts", player7Hand[0].count('H')+ player7Hand[1].count('H') + player7Hand[2].count('H') + player7Hand[3].count('H')
+          + player7Hand[4].count('H') + player7Hand[5].count('H'))
+    print("Spades", player7Hand[0].count('S') + player7Hand[1].count('S') + player7Hand[2].count('S') + player7Hand[3].count('S')
+          + player7Hand[4].count('S') + player7Hand[5].count('S'))
+    print("Clubs", player7Hand[0].count('C')+ player7Hand[1].count('C') + player7Hand[2].count('C') + player7Hand[3].count('C')
+          + player7Hand[4].count('C')+ player7Hand[5].count('C')+ player7Hand[6].count('C'))
+if players > 7:
+    player8Hand = [hands[14], hands[15], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player8Hand)
+    print("Diamonds", player8Hand[0].count('D') + player8Hand[1].count('D') + player8Hand[2].count('D') + player8Hand[3].count('D') +
+          player8Hand[4].count('D') + player8Hand[5].count('D'))
+    print("Hearts", player8Hand[0].count('H')+ player8Hand[1].count('H') + player8Hand[2].count('H') + player8Hand[3].count('H')
+          + player8Hand[4].count('H') + player8Hand[5].count('H'))
+    print("Spades", player8Hand[0].count('S') + player8Hand[1].count('S') + player8Hand[2].count('S') + player8Hand[3].count('S')
+          + player8Hand[4].count('S') + player8Hand[5].count('S'))
+    print("Clubs", player8Hand[0].count('C')+ player8Hand[1].count('C') + player8Hand[2].count('C') + player8Hand[3].count('C')
+          + player8Hand[4].count('C')+ player8Hand[5].count('C')+ player8Hand[6].count('C'))
+if players > 8:
+    player9Hand = [hands[16], hands[17], fullHand[0], fullHand[1], fullHand[2], fullHand[3], fullHand[4]]
+    print(" ")
+    print(player9Hand)
+    #####################
+    PreFlopPlayer9flushCountD = [player9Hand[0].count('D'), player9Hand[1].count('D')]
+    
+    FlopPlayer9flushCountD = [player9Hand[0].count('D'), player9Hand[1].count('D'), + player9Hand[2].count('D'), + player9Hand[3].count('D'),
+    player9Hand[4].count('D')]
+
+    TurnPlayer9flushCountD = [player9Hand[0].count('D'), player9Hand[1].count('D'), + player9Hand[2].count('D'), + player9Hand[3].count('D'),
+    player9Hand[4].count('D'), player9Hand[5].count('D')]
+    
+    RiverPlayer9flushCountD = [player9Hand[0].count('D'), player9Hand[1].count('D'), + player9Hand[2].count('D'), + player9Hand[3].count('D'),
+    player9Hand[4].count('D')+ player9Hand[5].count('D')+ player9Hand[6].count('D')]
+    
+    print("Diamonds", sum(RiverPlayer9flushCountD))
+    #####################
+    PreFlopPlayer9flushCountH = [player9Hand[0].count('H'), player9Hand[1].count('H')]
+    
+    FlopPlayer9flushCountH = [player9Hand[0].count('H'), player9Hand[1].count('H'), + player9Hand[2].count('H'), + player9Hand[3].count('H'),
+    player9Hand[4].count('H')]
+
+    TurnPlayer9flushCountH = [player9Hand[0].count('H'), player9Hand[1].count('H'), + player9Hand[2].count('H'), + player9Hand[3].count('H'),
+    player9Hand[4].count('H'), player9Hand[5].count('H')]
+    
+    RiverPlayer9flushCountH = [player9Hand[0].count('H'), player9Hand[1].count('H'), + player9Hand[2].count('H'), + player9Hand[3].count('H'),
+    player9Hand[4].count('H')+ player9Hand[5].count('H')+ player9Hand[6].count('H')]
+    print("Hearts", sum(RiverPlayer9flushCountH) )
+    #####################
+    PreFlopPlayer9flushCountS = [player9Hand[0].count('S'), player9Hand[1].count('S')]
+    
+    FlopPlayer9flushCountS = [player9Hand[0].count('S'), player9Hand[1].count('S'), + player9Hand[2].count('S'), + player9Hand[3].count('S'),
+    player9Hand[4].count('S')]
+
+    TurnPlayer9flushCountS = [player9Hand[0].count('S'), player9Hand[1].count('S'), + player9Hand[2].count('S'), + player9Hand[3].count('S'),
+    player9Hand[4].count('S'), player9Hand[5].count('S')]
+    
+    RiverPlayer9flushCountS = [player9Hand[0].count('S'), player9Hand[1].count('S'), + player9Hand[2].count('S'), + player9Hand[3].count('S'),
+    player9Hand[4].count('S')+ player9Hand[5].count('S')+ player9Hand[6].count('S')]
+    print("Spades", sum(RiverPlayer9flushCountS))
+    #####################
+    PreFlopPlayer9flushCountC = [player9Hand[0].count('C'), player9Hand[1].count('C')]
+    
+    FlopPlayer9flushCountC = [player9Hand[0].count('C'), player9Hand[1].count('C'), + player9Hand[2].count('C'), + player9Hand[3].count('C'),
+    player9Hand[4].count('C')]
+
+    TurnPlayer9flushCountC = [player9Hand[0].count('C'), player9Hand[1].count('C'), + player9Hand[2].count('C'), + player9Hand[3].count('C'),
+    player9Hand[4].count('C'), player9Hand[5].count('C')]
+    
+    RiverPlayer9flushCountC = [player9Hand[0].count('C'), player9Hand[1].count('C'), + player9Hand[2].count('C'), + player9Hand[3].count('C'),
+    player9Hand[4].count('C')+ player9Hand[5].count('C')+ player9Hand[6].count('C')]
+    print("Clubs", sum(RiverPlayer9flushCountC))
+    print(" ")
+    
+   
+DECK9 = ["C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C9", "C9", "C9", "C9", "C9",
+    "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D9", "D9", "D9", "D9", "D9",
+    "H2", "H3", "H4", "H5", "H6", "H7", "H8", "H9", "H9", "H9", "H9", "H9", "H9",
+    "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S9", "S9", "S9", "S9", "S9"]
+#COUNT SUITS
+
+n = 0
+j = 2
+while n < len(c2):
+        print(c2[n], '= card(',j,', "spades")') 
+
+        n = n + 1
+        j = j + 1
+
+
+
